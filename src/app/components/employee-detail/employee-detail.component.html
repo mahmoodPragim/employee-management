@@ -1,1 +1,34 @@
-<p>employee-detail works!</p>
+<div class="p-grid p-align-center p-justify-center" style="height: 100vh; display: flex; justify-content: center; align-items: center;">
+    <div class="p-col-12 p-md-8 p-lg-6" style="width: 80%; margin: 0 auto;">
+      <p-card header="Employee Details" class="p-mb-4">
+        <div *ngIf="employee">
+          <div class="p-field">
+            <label>Name</label>
+            <p>{{ employee.name }}</p>
+          </div>
+          <div class="p-field">
+            <label>Email</label>
+            <p>{{ employee.email || 'N/A' }}</p>
+          </div>
+          <div class="p-field">
+            <label>Assigned Projects</label>
+            <p-table [value]="employee.employeeProjects || []" class="p-datatable-gridlines">
+              <ng-template pTemplate="header">
+                <tr>
+                  <th>Project Name</th>
+                  <th>Description</th>
+                </tr>
+              </ng-template>
+              <ng-template pTemplate="body" let-project>
+                <tr>
+                  <td>{{ project.project.name }}</td>
+                  <td>{{ project.project.description }}</td>
+                </tr>
+              </ng-template>
+            </p-table>
+          </div>
+        </div>
+      </p-card>
+    </div>
+  </div>
+  

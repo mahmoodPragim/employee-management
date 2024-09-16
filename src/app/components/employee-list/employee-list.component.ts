@@ -6,11 +6,14 @@ import { CommonModule } from '@angular/common';
 import { CardModule } from 'primeng/card';
 import { TableModule } from 'primeng/table';
 import { ButtonModule } from 'primeng/button';
+import { ToastModule } from 'primeng/toast';
+import { MessageService } from 'primeng/api';
 
 @Component({
   selector: 'app-employee-list',
   standalone: true,
-  imports: [CommonModule, TableModule, CardModule, ButtonModule,RouterOutlet],
+  imports: [CommonModule, TableModule,ToastModule, CardModule, ButtonModule,RouterOutlet],
+  providers: [MessageService],
   templateUrl: './employee-list.component.html',
   styleUrls: ['./employee-list.component.css']
 })
@@ -34,14 +37,14 @@ export class EmployeeListComponent implements OnInit {
   }
 
   viewEmployee(id: number): void {
-    this.router.navigate(['/employees', id]);
+    this.router.navigate(['/employees/details', id]);
   }
 
   addNewEmployee(): void {
-    this.router.navigate(['/form']);
+    this.router.navigate(['/employees/create']);
   }
   
   editEmployee(id: number): void {
-    this.router.navigate(['form', id]);
+    this.router.navigate(['/employees/edit', id]);
   }
 }

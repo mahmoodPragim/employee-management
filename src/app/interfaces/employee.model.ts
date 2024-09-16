@@ -1,3 +1,5 @@
+import { EmployeeProject } from "./project.model";
+
 export interface ApiResponse<T> {
     status: string;
     data: T;
@@ -9,5 +11,6 @@ export interface ApiResponse<T> {
     employeeId?: number;
     name: string;
     email?: string;
+    employeeProjects?: EmployeeProject[];
   }
   
