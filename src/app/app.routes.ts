@@ -4,9 +4,10 @@ import { EmployeeListComponent } from './components/employee-list/employee-list.
 import { EmployeeFormComponent } from './components/employee-form/employee-form.component';
 
 export const routes: Routes = [
-  { path: '', redirectTo: '/employees', pathMatch: 'full' }, // Redirect root path to /employees
+  { path: '', redirectTo: '/employees', pathMatch: 'full' }, 
   { path: 'employees', component: EmployeeListComponent },
   { path: 'employees/:id', component: EmployeeDetailComponent },
-  { path: 'employees/create', component: EmployeeFormComponent },
-  { path: '**', redirectTo: '/employees' } // Redirect unknown paths to /employees
+  { path: 'employees/create', component: EmployeeFormComponent }, 
+  { path: 'employees/edit/:id', component: EmployeeFormComponent },
+  { path: '**', redirectTo: '/employees' } 
 ];
