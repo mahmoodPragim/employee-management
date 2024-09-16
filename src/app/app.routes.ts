@@ -5,8 +5,9 @@ import { EmployeeFormComponent } from './components/employee-form/employee-form.
 
 export const routes: Routes = [
   { path: '', redirectTo: '/employees', pathMatch: 'full' },
+  { path: 'form', component: EmployeeFormComponent },
+  { path: 'form/:id', component: EmployeeFormComponent },
   { path: 'employees', component: EmployeeListComponent },
-  { path: 'employees/:id', component: EmployeeDetailComponent },
-  { path: 'employees/form/:id?', component: EmployeeFormComponent }, // Optional ID
+  { path: 'details/:id', component: EmployeeDetailComponent },
   { path: '**', redirectTo: '/employees' }
 ];

@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { Router } from '@angular/router';
+import { Router, RouterOutlet } from '@angular/router';
 import { Employee, ApiResponse } from '../../interfaces/employee.model';
 import { EmployeeService } from '../../services/employee.service';
 import { CommonModule } from '@angular/common';
@@ -10,7 +10,7 @@ import { ButtonModule } from 'primeng/button';
 @Component({
   selector: 'app-employee-list',
   standalone: true,
-  imports: [CommonModule, TableModule, CardModule, ButtonModule],
+  imports: [CommonModule, TableModule, CardModule, ButtonModule,RouterOutlet],
   templateUrl: './employee-list.component.html',
   styleUrls: ['./employee-list.component.css']
 })
@@ -38,10 +38,10 @@ export class EmployeeListComponent implements OnInit {
   }
 
   addNewEmployee(): void {
-    this.router.navigate(['/employees/form']);
+    this.router.navigate(['/form']);
   }
   
   editEmployee(id: number): void {
-    this.router.navigate(['/employees/form', id]);
+    this.router.navigate(['form', id]);
   }
 }

@@ -47,14 +47,7 @@ export class EmployeeFormComponent implements OnInit {
 
   ngOnInit(): void {
     debugger
-    this.route.queryParams.subscribe(params => {
-      this.employeeId = params['id'] ? +params['id'] : null;
-      this.isEditMode = !!this.employeeId;
-
-      if (this.isEditMode) {
-        this.loadEmployee();
-      }
-    });
+  
   }
 
   loadEmployee(): void {
