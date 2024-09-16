@@ -1,1 +1,22 @@
-<p>employee-form works!</p>
+<div class="p-grid p-align-center p-justify-center" style="height: 100vh; display: flex; justify-content: center; align-items: center;">
+    <div class="p-col-12 p-md-8 p-lg-6" style="width: 80%; margin: 0 auto;">
+      <p-card header="{{ isEditMode ? 'Edit Employee' : 'Add New Employee' }}" class="p-mb-4">
+        <form [formGroup]="employeeForm" (ngSubmit)="onSubmit()">
+          <div class="p-field">
+            <label for="name">Name</label>
+            <input id="name" pInputText formControlName="name"/>
+            <p-message *ngIf="employeeForm.get('name')?.invalid && employeeForm.get('name')?.touched" severity="error" text="Name is required and should be between 2 and 100 characters."></p-message>
+          </div>
+          <div class="p-field">
+            <label for="email">Email</label>
+            <input id="email" pInputText formControlName="email"/>
+            <p-message *ngIf="employeeForm.get('email')?.invalid && employeeForm.get('email')?.touched" severity="error" text="Email is not valid."></p-message>
+          </div>
+          <div class="p-d-flex p-justify-end">
+            <button pButton type="submit" label="Save"></button>
+          </div>
+        </form>
+      </p-card>
+    </div>
+  </div>
+  

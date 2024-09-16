@@ -37,11 +37,11 @@ export class EmployeeListComponent implements OnInit {
     this.router.navigate(['/employees', id]);
   }
 
-  editEmployee(id: number): void {
-    this.router.navigate(['/employees/edit', id]);
-  }
-
   addNewEmployee(): void {
-    this.router.navigate(['/employees/create']);
+    this.router.navigate(['/employees/form']);
+  }
+  
+  editEmployee(id: number): void {
+    this.router.navigate(['/employees/form', id]);
   }
 }
