@@ -1,38 +1,57 @@
 <p-toast></p-toast>
 
-<div class="p-grid p-align-center p-justify-center" style="height: 100vh; display: flex; justify-content: center; align-items: center;">
+
+<div class="p-grid p-align-center p-justify-center"
+  style="height: 100vh; display: flex; justify-content: center; align-items: center;">
   <div class="p-col-12 p-md-8 p-lg-6" style="width: 80%; margin: 0 auto;">
     <p-card header="{{ isEditMode ? 'Edit Employee' : 'Add New Employee' }}" class="p-mb-4">
       <form [formGroup]="employeeForm" (ngSubmit)="onSubmit()">
-        
+
         <!-- Name Field -->
-        <div class="p-field">
-          <label for="name">Name</label>
-          <input id="name" pInputText formControlName="name"/>
-          <p-message *ngIf="employeeForm.get('name')?.invalid && employeeForm.get('name')?.touched" severity="error" 
-                     text="Name is required and should be between 2 and 100 characters."></p-message>
+        <div class="p-grid p-fluid">
+          <div class="p-col-12 p-md-6">
+            <p-floatLabel>
+              <input id="name" pInputText formControlName="name" />
+              <label for="name">Name</label>
+
+              <p-message *ngIf="employeeForm.get('name')?.invalid && employeeForm.get('name')?.touched" severity="error"
+                text="Name is required and should be between 2 and 100 characters."></p-message>
+                  </p-floatLabel>
+          </div>
+        
+          <div class="p-col-12 p-md-6" style="margin-top: 40px; margin-bottom: 30px;">
+
+            <p-floatLabel>
+                 
+              <p-message *ngIf="employeeForm.get('email')?.invalid && employeeForm.get('email')?.touched"
+                severity="error" text="Email is not valid."></p-message>
+              <input id="email" pInputText formControlName="email" />
+
+              <label for="email">Email</label>
+           
+            
+          </p-floatLabel>
+
+          </div>
         </div>
         
+
+
         <!-- Email Field -->
-        <div class="p-field">
-          <label for="email">Email</label>
-          <input id="email" pInputText formControlName="email"/>
-          <p-message *ngIf="employeeForm.get('email')?.invalid && employeeForm.get('email')?.touched" severity="error" 
-                     text="Email is not valid."></p-message>
-        </div>
+
 
         <!-- Project Assignment Section (visible only if id is provided) -->
         <div *ngIf="isEditMode">
-          <div class="p-field">
-            <label for="projects">Assign Projects</label>
-            <p-multiSelect [options]="projects" formControlName="assignedProjects" optionLabel="name" placeholder="Select Projects"></p-multiSelect>
+          <div class="p-field" style="margin-bottom: 30px;">
+            <p-multiSelect [options]="projects" formControlName="assignedProjects" optionLabel="name"
+              placeholder="Assign Projects"></p-multiSelect>
           </div>
 
           <!-- Display Assigned Projects -->
           <div *ngIf="assignedProjects.length > 0">
             <h3>Assigned Projects:</h3>
             <p-table [value]="assignedProjects" [paginator]="true" [rows]="5" [rowsPerPageOptions]="[5, 10, 25]"
-                     class="p-datatable-gridlines">
+              class="p-datatable-gridlines">
               <ng-template pTemplate="header">
                 <tr>
                   <th>Project Name</th>

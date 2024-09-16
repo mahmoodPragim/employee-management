@@ -1,34 +1,45 @@
 <div class="p-grid p-align-center p-justify-center" style="height: 100vh; display: flex; justify-content: center; align-items: center;">
-    <div class="p-col-12 p-md-8 p-lg-6" style="width: 80%; margin: 0 auto;">
-      <p-card header="Employee Details" class="p-mb-4">
-        <div *ngIf="employee">
-          <div class="p-field">
-            <label>Name</label>
-            <p>{{ employee.name }}</p>
-          </div>
-          <div class="p-field">
-            <label>Email</label>
-            <p>{{ employee.email || 'N/A' }}</p>
-          </div>
-          <div class="p-field">
-            <label>Assigned Projects</label>
-            <p-table [value]="employee.employeeProjects || []" class="p-datatable-gridlines">
-              <ng-template pTemplate="header">
-                <tr>
-                  <th>Project Name</th>
-                  <th>Description</th>
-                </tr>
-              </ng-template>
-              <ng-template pTemplate="body" let-project>
-                <tr>
-                  <td>{{ project.project.name }}</td>
-                  <td>{{ project.project.description }}</td>
-                </tr>
-              </ng-template>
-            </p-table>
+  <div class="p-col-12 p-md-10 p-lg-8" style="width: 100%; max-width: 900px; margin: 0 auto;">
+    <p-card header="Employee Details" class="p-mb-4">
+      <div *ngIf="employee">
+        <p-floatLabel>
+        
+          <input pInputText value="{{employee.name}}" disabled />
+          <label for="name">Name:</label>
+        
+        </p-floatLabel>
+
+        <div style="margin-top: 40px; margin-bottom: 40px;">
+          <p-floatLabel>
+        
+            <input pInputText value="{{ employee.email || 'N/A' }}" disabled />
+            <label for="email">Email:</label>
+          
+          </p-floatLabel>
+        </div>
+     
+        <div class="p-field">
+          <label>Assigned Projects:</label>
+          <p-table [value]="employee.employeeProjects || []" class="p-datatable-gridlines p-mt-3">
+            <ng-template pTemplate="header">
+              <tr>
+                <th>Project Name</th>
+                <th>Description</th>
+              </tr>
+            </ng-template>
+            <ng-template pTemplate="body" let-project>
+              <tr>
+                <td>{{ project.project.name }}</td>
+                <td>{{ project.project.description }}</td>
+              </tr>
+            </ng-template>
+          </p-table>
+          <div *ngIf="!(employee.employeeProjects && employee.employeeProjects.length)">
+            <p>No projects assigned</p>
           </div>
         </div>
-      </p-card>
-    </div>
+      </div>
+    </p-card>
   </div>
-  
+</div>
+

@@ -5,11 +5,13 @@ import { EmployeeService } from '../../services/employee.service';
 import { CommonModule } from '@angular/common';
 import { CardModule } from 'primeng/card';
 import { TableModule } from 'primeng/table';
+import { InputTextModule } from 'primeng/inputtext';
+import { FloatLabelModule } from 'primeng/floatlabel';
 
 @Component({
   selector: 'app-employee-detail',
   standalone: true,
-  imports: [CommonModule, CardModule, TableModule],
+  imports: [CommonModule, CardModule, TableModule,InputTextModule,FloatLabelModule],
   templateUrl: './employee-detail.component.html',
   styleUrl: './employee-detail.component.css'
 })

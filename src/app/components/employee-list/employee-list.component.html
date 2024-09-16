@@ -1,6 +1,7 @@
 
 <p-toast></p-toast>
 
+
 <div class="p-grid p-align-center p-justify-center" style="height: 100vh; display: flex; justify-content: center; align-items: center;">
     <div class="p-col-12 p-md-8 p-lg-6" style="width: 80%; margin: 0 auto;">
         <p-card header="Employee List" class="p-mb-4">
@@ -24,7 +25,7 @@
                             <td>{{ employee.name }}</td>
                             <td>{{ employee.email }}</td>
                             <td>
-                                <button pButton type="button" label="View" (click)="viewEmployee(employee.employeeId)"></button>
+                                <button pButton style="margin-right: 15px;" type="button" label="View" (click)="viewEmployee(employee.employeeId)"></button>
                                 <button pButton type="button" label="Edit" (click)="editEmployee(employee.employeeId)"></button>
                             </td>
                         </tr>

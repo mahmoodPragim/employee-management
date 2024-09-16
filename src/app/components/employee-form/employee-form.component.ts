@@ -14,6 +14,7 @@ import { ToastModule } from 'primeng/toast';
 import { Project } from '../../interfaces/project.model';
 import { ProjectService } from '../../services/project.service';
 import { TableModule } from 'primeng/table';
+import { FloatLabelModule } from 'primeng/floatlabel';
 
 @Component({
   selector: 'app-employee-form',
@@ -26,7 +27,9 @@ import { TableModule } from 'primeng/table';
     MessageModule,
     ToastModule,
     CardModule,
-    TableModule],
+    TableModule,
+    FloatLabelModule
+  ],
 
   templateUrl: './employee-form.component.html',
   styleUrls: ['./employee-form.component.css'],
