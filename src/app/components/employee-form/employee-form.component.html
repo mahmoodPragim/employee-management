@@ -7,7 +7,6 @@
     <p-card header="{{ isEditMode ? 'Edit Employee' : 'Add New Employee' }}" class="p-mb-4">
       <form [formGroup]="employeeForm" (ngSubmit)="onSubmit()">
 
-        <!-- Name Field -->
         <div class="p-grid p-fluid">
           <div class="p-col-12 p-md-6">
             <p-floatLabel>
@@ -37,17 +36,14 @@
         
 
 
-        <!-- Email Field -->
 
 
-        <!-- Project Assignment Section (visible only if id is provided) -->
         <div *ngIf="isEditMode">
           <div class="p-field" style="margin-bottom: 30px;">
             <p-multiSelect [options]="projects" formControlName="assignedProjects" optionLabel="name"
               placeholder="Assign Projects"></p-multiSelect>
           </div>
 
-          <!-- Display Assigned Projects -->
           <div *ngIf="assignedProjects.length > 0">
             <h3>Assigned Projects:</h3>
             <p-table [value]="assignedProjects" [paginator]="true" [rows]="5" [rowsPerPageOptions]="[5, 10, 25]"
@@ -68,7 +64,6 @@
           </div>
         </div>
 
-        <!-- Save Button -->
         <div class="p-d-flex p-justify-end">
           <button pButton type="submit" label="Save" [disabled]="employeeForm.invalid"></button>
         </div>

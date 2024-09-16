@@ -39,8 +39,8 @@ export class EmployeeFormComponent implements OnInit {
   employeeForm: FormGroup;
   isEditMode: boolean = false;
   employeeId: number | null = null;
-  projects: Project[] = []; // Available projects for selection
-  assignedProjects: Project[] = []; // Projects currently assigned to the employee
+  projects: Project[] = []; 
+  assignedProjects: Project[] = []; 
 
   constructor(
     private fb: FormBuilder,
@@ -53,20 +53,20 @@ export class EmployeeFormComponent implements OnInit {
     this.employeeForm = this.fb.group({
       name: ['', [Validators.required, Validators.minLength(2), Validators.maxLength(100)]],
       email: ['', [Validators.email]],
-      assignedProjects: [[]] // MultiSelect control for assigned projects
+      assignedProjects: [[]] 
     });
   }
 
   ngOnInit(): void {
-    // Subscribe to route parameters to get the `id`
+  
     this.route.params.subscribe(params => {
       this.employeeId = params['id'] ? +params['id'] : null;
       this.isEditMode = !!this.employeeId;
   
-      this.loadProjects(); // Load all available projects
+      this.loadProjects();
   
       if (this.isEditMode) {
-        this.loadEmployee(); // Load employee details and assigned projects
+        this.loadEmployee(); 
       }
     });
   }
@@ -138,7 +138,7 @@ export class EmployeeFormComponent implements OnInit {
     const selectedProjects = this.employeeForm.get('assignedProjects')?.value || [];
     const request = {
       employeeIds: [this.employeeId],
-      projectIds: selectedProjects.map((project: Project) => project.projectId) // Extract project IDs
+      projectIds: selectedProjects.map((project: Project) => project.projectId) 
     };
     this.employeeService.assignEmployeesToProjects(request).subscribe(response => {
       if (response.status === 'Success') {

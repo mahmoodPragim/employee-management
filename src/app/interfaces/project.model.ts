@@ -2,7 +2,7 @@ export interface Project {
     projectId: number;
     name: string;
     description?: string;
-    employeeProjects?: EmployeeProject[] | null; // Can be null or empty
+    employeeProjects?: EmployeeProject[] | null;
   }
   export interface EmployeeProject {
     employeeId: number;
